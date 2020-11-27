@@ -73,7 +73,7 @@ class FG:
     f = open("../FG.txt", 'w')
     for prod in self.prod:
       for head in prod[0]:
-        if head in self.term + [""]:
+        if head in self.term:
           f.write(f'{head} ')
         else:
           f.write(f'{self.var_names[head]} ')
