@@ -36,8 +36,10 @@ class FG:
             for a in self.term + ['']:
               self.prod.append(([tuple(q), f'[{a},{C}]'], \
                                 [f'[{a},{trans[1]}]', tuple(trans[0])]))
-              self.var_names[f'[{a},{C}]'] = 'N' + str(N_num)
-              self.var_names[f'[{a},{trans[1]}]'] = 'N' + str(N_num + 1)
+              if (f'[{a},{C}]') not in self.var_names:
+                self.var_names[f'[{a},{C}]'] = 'N' + str(N_num)
+              if (f'[{a},{trans[1]}]') not in self.var_names:
+                self.var_names[f'[{a},{trans[1]}]'] = 'N' + str(N_num + 1)
               self.var_names[tuple(q)] = 'Q' + str(q)
               self.var_names[tuple(trans[0])] = 'Q' + str(trans[0])
               N_num += 2
@@ -47,9 +49,12 @@ class FG:
                 for E in TM.tape_sym:
                   self.prod.append(([f'[{b},{E}]', tuple(q), f'[{a},{C}]'], \
                                     [tuple(trans[0]), f'[{b},{E}]', f'[{a},{trans[1]}]']))
-                  self.var_names[f'[{a},{C}]'] = 'N' + str(N_num)
-                  self.var_names[f'[{a},{trans[1]}]'] = 'N' + str(N_num + 1)
-                  self.var_names[f'[{b},{E}]'] = 'N' + str(N_num + 2)
+                  if (f'[{a},{C}]') not in self.var_names:
+                    self.var_names[f'[{a},{C}]'] = 'N' + str(N_num)
+                  if (f'[{a},{trans[1]}]') not in self.var_names:
+                    self.var_names[f'[{a},{trans[1]}]'] = 'N' + str(N_num + 1)
+                  if (f'[{b},{E}]') not in self.var_names:
+                    self.var_names[f'[{b},{E}]'] = 'N' + str(N_num + 2)
                   self.var_names[tuple(q)] = 'Q' + str(q)
                   self.var_names[tuple(trans[0])] = 'Q' + str(trans[0])
                   N_num += 3
@@ -59,7 +64,8 @@ class FG:
           self.prod.append(([tuple(q)], ''))
           self.prod.append(([tuple(q), f'[{a},{C}]'], [tuple(q), a, tuple(q)]))
           self.prod.append(([f'[{a},{C}]', tuple(q)], [tuple(q), a, tuple(q)]))
-          self.var_names[f'[{a},{C}]'] = 'N' + str(N_num)
+          if (f'[{a},{C}]') not in self.var_names:
+            self.var_names[f'[{a},{C}]'] = 'N' + str(N_num)
           self.var_names[tuple(q)] = 'Q' + str(q)
           N_num += 1
 
