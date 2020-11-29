@@ -8,4 +8,5 @@ if __name__ == '__main__':
   fg = FG()
   fg.from_TM(tm)
   fg.write("../FG.txt")
-  fg.generates("1*1=1")
+  fg.generates("#1*1=1$", tm)
+  fg.generates("11", tm)

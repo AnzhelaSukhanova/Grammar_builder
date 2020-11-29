@@ -15,8 +15,9 @@ class TM:
     f = open(filename, 'r')
     self.start = f.readline().rstrip()
     self.blank = f.readline().rstrip()
+    self.tape_sym = [self.blank]
     self.in_sym = f.readline().rstrip().split()
-    self.fin_states = set(f.readline().rstrip().split())
+    self.fin_states = f.readline().rstrip().split()
 
     for line in f:
       q1, s1, q2, s2, way = line.rstrip().split()
@@ -24,9 +25,9 @@ class TM:
         self.states.append(q1)
       if q2 not in self.states:
         self.states.append(q2)
-      if s1 not in self.tape_sym and s1 != self.blank:
+      if s1 not in self.tape_sym:
         self.tape_sym.append(s1)
-      if s2 not in self.tape_sym and s2 != self.blank:
+      if s2 not in self.tape_sym:
         self.tape_sym.append(s2)
       self.trans[(q1, s1)] = [q2, s2, way]
 
