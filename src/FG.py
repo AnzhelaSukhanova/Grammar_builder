@@ -32,7 +32,7 @@ class FG:
       for q in TM.states:
         if (q, C) in TM.trans:
           trans = TM.trans[(q, C)]
-          if trans[2] == 'r':
+          if trans[2] == 'r' or trans[2] == 'n':
             for a in self.term + ['']:
               self.prod.append(([tuple(q), f'[{a},{C}]'], \
                                 [f'[{a},{trans[1]}]', tuple(trans[0])]))
@@ -43,7 +43,7 @@ class FG:
               self.var_names[tuple(q)] = 'Q' + str(q)
               self.var_names[tuple(trans[0])] = 'Q' + str(trans[0])
               N_num += 2
-          elif trans[2] == 'l':
+          else:
             for a in self.term + ['']:
               for b in self.term + ['']:
                 for E in TM.tape_sym:
