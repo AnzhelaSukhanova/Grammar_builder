@@ -6,5 +6,5 @@ After that you can enter the word and if the grammars generate it, you will see 
 You can continue checking or ***enter*** `:q` ***to stop the program***.
 
 # Input format
-Input symbols: 1, *, =
-Word's examples: 1*1=1, 1*=, 111*11=111111, *=, 1*1111=1111 *1= etc
+Input symbols: 1, \*, =
+Word's examples: 1\*1=1, 1\*=, 111\*11=111111, \*=, 1\*1111=1111, \*1=, etc
