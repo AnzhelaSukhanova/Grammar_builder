@@ -31,8 +31,8 @@ class TM:
         self.tape_sym.append(s2)
       self.trans[(q1, s1)] = [q2, s2, way]
 
-  def compute(self, word):  # work? allow?
-    if len(word) == 0 and self.start not in self.fin_states:
+  def compute(self, word):
+    if len(word) < 2:
       return False
     for sym in word:
       if sym not in self.in_sym:
