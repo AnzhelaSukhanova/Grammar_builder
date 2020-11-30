@@ -1,4 +1,4 @@
-# Grammar_builder
+# Grammar_builder by Sukhanova and Afonina
 Program constructing a free grammar and a context sensitive grammar from Тuring machine. Grammars generate a language of correct mathematical expressions for a multiplication in an unary number system.
 ____
 To check if grammars generate a word, ***use*** `python main.py`.  
