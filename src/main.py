@@ -5,10 +5,10 @@ from CSG import CSG
 
 if __name__ == '__main__':
   tm = TM()
-  tm.read("../TM.txt")
+  tm.read("TM.txt")
   fg = FG()
   fg.from_TM(tm)
-  fg.write("../FG.txt")
+  fg.write("FG.txt")
   csg = CSG()
   csg.from_lba(tm)
   word = input()
