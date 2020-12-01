@@ -150,6 +150,7 @@ class CSG:
       print("\nError in modeling start configuration")
       print(cur_sent, -1)
       return False
+    self.prod.append((["[#,('0',),*,*]", '[=,=,$]'], ['[#,*,*]', "[('1',),=,=,$]"]))
     changes = True
     i = 0
     while changes:
